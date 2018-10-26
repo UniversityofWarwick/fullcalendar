@@ -6418,7 +6418,6 @@ exports.default = BusinessHourRenderer;
 
 Object.defineProperty(exports, "__esModule", { value: true });
 var $ = __webpack_require__(3);
-var util_1 = __webpack_require__(4);
 var FillRenderer = /** @class */ (function () {
     function FillRenderer(component) {
         this.fillSegTag = 'div';
@@ -6482,10 +6481,8 @@ var FillRenderer = /** @class */ (function () {
     FillRenderer.prototype.buildSegHtml = function (type, seg, props) {
         // custom hooks per-type
         var classes = props.getClasses ? props.getClasses(seg) : [];
-        var css = util_1.cssToStr(props.getCss ? props.getCss(seg) : {});
         return '<' + this.fillSegTag +
             (classes.length ? ' class="' + classes.join(' ') + '"' : '') +
-            (css ? ' style="' + css + '"' : '') +
             ' />';
     };
     // Should return wrapping DOM structure
@@ -7382,9 +7379,6 @@ var BasicView = /** @class */ (function (_super) {
     };
     // Generates an HTML attribute string for setting the width of the week number column, if it is known
     BasicView.prototype.weekNumberStyleAttr = function () {
-        if (this.weekNumberWidth != null) {
-            return 'style="width:' + this.weekNumberWidth + 'px"';
-        }
         return '';
     };
     // Determines whether each row should have a constant height
@@ -11407,9 +11401,6 @@ var AgendaView = /** @class */ (function (_super) {
     };
     // Generates an HTML attribute string for setting the width of the axis, if it is known
     AgendaView.prototype.axisStyleAttr = function () {
-        if (this.axisWidth != null) {
-            return 'style="width:' + this.axisWidth + 'px"';
-        }
         return '';
     };
     /* Now Indicator
@@ -11764,7 +11755,7 @@ var TimeGrid = /** @class */ (function (_super) {
         var theme = this.view.calendar.theme;
         this.el.html('<div class="fc-bg"></div>' +
             '<div class="fc-slats"></div>' +
-            '<hr class="fc-divider ' + theme.getClass('widgetHeader') + '" style="display:none" />');
+            '<hr class="fc-divider ' + theme.getClass('widgetHeader') + '" />');
         this.bottomRuleEl = this.el.find('hr');
     };
     TimeGrid.prototype.renderSlats = function () {
@@ -13784,7 +13775,6 @@ var TimeGridEventRenderer = /** @class */ (function (_super) {
         var isResizableFromStart = !disableResizing && seg.isStart && view.isEventDefResizableFromStart(eventDef);
         var isResizableFromEnd = !disableResizing && seg.isEnd && view.isEventDefResizableFromEnd(eventDef);
         var classes = this.getSegClasses(seg, isDraggable, isResizableFromStart || isResizableFromEnd);
-        var skinCss = util_1.cssToStr(this.getSkinCss(eventDef));
         var timeText;
         var fullTimeText; // more verbose time text. for the print stylesheet
         var startTimeText; // just the start time text
@@ -13811,9 +13801,6 @@ var TimeGridEventRenderer = /** @class */ (function (_super) {
         return '<a class="' + classes.join(' ') + '"' +
             (eventDef.url ?
                 ' href="' + util_1.htmlEscape(eventDef.url) + '"' :
-                '') +
-            (skinCss ?
-                ' style="' + skinCss + '"' :
                 '') +
             '>' +
             '<div class="fc-content">' +
@@ -14456,7 +14443,6 @@ var DayGridEventRenderer = /** @class */ (function (_super) {
         var isResizableFromEnd = !disableResizing && isAllDay &&
             seg.isEnd && view.isEventDefResizableFromEnd(eventDef);
         var classes = this.getSegClasses(seg, isDraggable, isResizableFromStart || isResizableFromEnd);
-        var skinCss = util_1.cssToStr(this.getSkinCss(eventDef));
         var timeHtml = '';
         var timeText;
         var titleHtml;
@@ -14475,9 +14461,6 @@ var DayGridEventRenderer = /** @class */ (function (_super) {
         return '<a class="' + classes.join(' ') + '"' +
             (eventDef.url ?
                 ' href="' + util_1.htmlEscape(eventDef.url) + '"' :
-                '') +
-            (skinCss ?
-                ' style="' + skinCss + '"' :
                 '') +
             '>' +
             '<div class="fc-content">' +
@@ -14690,7 +14673,6 @@ var ListEventRenderer = /** @class */ (function (_super) {
         var componentFootprint = eventFootprint.componentFootprint;
         var url = eventDef.url;
         var classes = ['fc-list-item'].concat(this.getClasses(eventDef));
-        var bgColor = this.getBgColor(eventDef);
         var timeHtml;
         if (componentFootprint.isAllDay) {
             timeHtml = view.getAllDayHtml();
@@ -14718,9 +14700,6 @@ var ListEventRenderer = /** @class */ (function (_super) {
                 '') +
             '<td class="fc-list-item-marker ' + theme.getClass('widgetContent') + '">' +
             '<span class="fc-event-dot"' +
-            (bgColor ?
-                ' style="background-color:' + bgColor + '"' :
-                '') +
             '></span>' +
             '</td>' +
             '<td class="fc-list-item-title ' + theme.getClass('widgetContent') + '">' +
