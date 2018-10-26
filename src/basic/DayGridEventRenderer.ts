@@ -1,5 +1,5 @@
 import * as $ from 'jquery'
-import { htmlEscape, cssToStr } from '../util'
+import { htmlEscape } from '../util'
 import EventRenderer from '../component/renderers/EventRenderer'
 
 
@@ -242,7 +242,6 @@ export default class DayGridEventRenderer extends EventRenderer {
     let isResizableFromEnd = !disableResizing && isAllDay &&
       seg.isEnd && view.isEventDefResizableFromEnd(eventDef)
     let classes = this.getSegClasses(seg, isDraggable, isResizableFromStart || isResizableFromEnd)
-    let skinCss = cssToStr(this.getSkinCss(eventDef))
     let timeHtml = ''
     let timeText
     let titleHtml

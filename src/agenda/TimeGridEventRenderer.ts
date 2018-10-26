@@ -1,4 +1,4 @@
-import { htmlEscape, cssToStr, proxy } from '../util'
+import { htmlEscape, proxy } from '../util'
 import EventRenderer from '../component/renderers/EventRenderer'
 
 /*
@@ -69,7 +69,6 @@ export default class TimeGridEventRenderer extends EventRenderer {
     let isResizableFromStart = !disableResizing && seg.isStart && view.isEventDefResizableFromStart(eventDef)
     let isResizableFromEnd = !disableResizing && seg.isEnd && view.isEventDefResizableFromEnd(eventDef)
     let classes = this.getSegClasses(seg, isDraggable, isResizableFromStart || isResizableFromEnd)
-    let skinCss = cssToStr(this.getSkinCss(eventDef))
     let timeText
     let fullTimeText // more verbose time text. for the print stylesheet
     let startTimeText // just the start time text

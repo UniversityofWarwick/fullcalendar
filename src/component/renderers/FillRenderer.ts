@@ -1,5 +1,4 @@
 import * as $ from 'jquery'
-import { cssToStr } from '../../util'
 
 
 export default class FillRenderer { // use for highlight, background events, business hours
@@ -94,7 +93,6 @@ export default class FillRenderer { // use for highlight, background events, bus
   buildSegHtml(type, seg, props) {
     // custom hooks per-type
     let classes = props.getClasses ? props.getClasses(seg) : []
-    let css = cssToStr(props.getCss ? props.getCss(seg) : {})
 
     return '<' + this.fillSegTag +
       (classes.length ? ' class="' + classes.join(' ') + '"' : '') +

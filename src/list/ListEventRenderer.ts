@@ -21,7 +21,6 @@ export default class ListEventRenderer extends EventRenderer {
     let componentFootprint = eventFootprint.componentFootprint
     let url = eventDef.url
     let classes = [ 'fc-list-item' ].concat(this.getClasses(eventDef))
-    let bgColor = this.getBgColor(eventDef)
     let timeHtml
 
     if (componentFootprint.isAllDay) {
