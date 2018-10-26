@@ -25,7 +25,7 @@
     "jquery": "2 - 3",
     "moment": "^2.20.1"
   },
-  "version": "3.9.0",
+  "version": "3.9.0-csp",
   "releaseDate": "2018-03-04",
   "devDependencies": {
     "@types/jquery": "2.0.47",
