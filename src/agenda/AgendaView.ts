@@ -144,9 +144,6 @@ export default class AgendaView extends View {
 
   // Generates an HTML attribute string for setting the width of the axis, if it is known
   axisStyleAttr() {
-    if (this.axisWidth != null) {
-      return 'style="width:' + this.axisWidth + 'px"'
-    }
     return ''
   }
 

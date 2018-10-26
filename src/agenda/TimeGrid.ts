@@ -201,7 +201,7 @@ export default class TimeGrid extends InteractiveDateComponent {
     this.el.html(
       '<div class="fc-bg"></div>' +
       '<div class="fc-slats"></div>' +
-      '<hr class="fc-divider ' + theme.getClass('widgetHeader') + '" style="display:none" />'
+      '<hr class="fc-divider ' + theme.getClass('widgetHeader') + '" />'
     )
 
     this.bottomRuleEl = this.el.find('hr')

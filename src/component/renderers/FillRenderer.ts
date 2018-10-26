@@ -98,7 +98,6 @@ export default class FillRenderer { // use for highlight, background events, bus
 
     return '<' + this.fillSegTag +
       (classes.length ? ' class="' + classes.join(' ') + '"' : '') +
-      (css ? ' style="' + css + '"' : '') +
       ' />'
   }
 

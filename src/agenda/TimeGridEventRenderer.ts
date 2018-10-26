@@ -100,10 +100,6 @@ export default class TimeGridEventRenderer extends EventRenderer {
         ' href="' + htmlEscape(eventDef.url) + '"' :
         ''
         ) +
-      (skinCss ?
-        ' style="' + skinCss + '"' :
-        ''
-        ) +
       '>' +
         '<div class="fc-content">' +
           (timeText ?
